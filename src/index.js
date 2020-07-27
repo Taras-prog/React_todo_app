@@ -1,38 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const TodoList = () => {
-    return (
-    <ul>
-        <li>Learn React</li>
-        <li>Learn NodeJS</li>
-    </ul>
-    )
-}
-
-const AppHeader = () => {
-    return (
-        <h1>My Todo List</h1>
-    )
-}
-
-const SearchPanel = () => {
-    return ( 
-        <input placeholder="search"/>
-        )
-}
+import AppHeader from './components/app-header';
+import SearchPanel from './components/search-panel';
+import TodoList from './components/todo-list';
 
 const App = () => {
+    const todoData = [
+        { label: 'Drink Coffee', important: false},
+        { label: 'Learn React', important: true},
+        { label: 'Learn NodeJS', important: true},
+        { label: 'Learn English', important: true},
+        { label: 'Learn Python', important: false},
+    ]
+  
     return ( 
     <div>
         <AppHeader />
         <SearchPanel />
-        <TodoList />
+        <TodoList todos={todoData}/>
     </div>
     )
-}
+};
 
 
-
-
-ReactDOM.render(<App/>,  document.getElementById('root'))
+ReactDOM.render(<App/>,  document.getElementById('root'));
